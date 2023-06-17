@@ -250,7 +250,11 @@ void TimeLineWidget::mouseDoubleClickEvent(QMouseEvent* aEvent)
 void TimeLineWidget::wheelEvent(QWheelEvent* aEvent)
 {
     QPoint viewTrans = viewportTransform();
+#if (QT_VERSION >= QT_VERSION_CHECK(5,14,0))
     const QPoint cursor = aEvent->position().toPoint();
+#else
+    const QPoint cursor = aEvent->pos();
+#endif
     const QRect rectPrev = mInner->rect();
 
     mInner->updateWheel(aEvent);

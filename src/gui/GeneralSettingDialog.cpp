@@ -409,7 +409,8 @@ GeneralSettingDialog::GeneralSettingDialog(GUIResources &aGUIResources, QWidget*
             QString file = net.os() == "win"? "/ffmpeg.exe" : "/ffmpeg";
 
             if (QFileInfo(dir.absolutePath() + file).exists()){
-                QFile(dir.absolutePath() + file).moveToTrash();
+                // QFile(dir.absolutePath() + file).moveToTrash();
+                QFile(dir.absolutePath() + file).remove();
             }
 
             QFileInfo ffmpeg = QFileInfo(QFileDialog::getOpenFileName(nullptr, "Select FFmpeg executable"));
@@ -434,7 +435,8 @@ GeneralSettingDialog::GeneralSettingDialog(GUIResources &aGUIResources, QWidget*
             }
             QString file = networking.os() == "win"? "/ffmpeg.exe" : "/ffmpeg";
             if (QFileInfo(dir.absolutePath() + file).exists()){
-                QFile(dir.absolutePath() + file).moveToTrash();
+                // QFile(dir.absolutePath() + file).moveToTrash();
+                QFile(dir.absolutePath() + file).remove();
             }
             QString os = networking.os();
             QString arch = networking.arch();

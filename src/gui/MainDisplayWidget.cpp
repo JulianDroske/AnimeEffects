@@ -461,8 +461,13 @@ void MainDisplayWidget::mouseReleaseEvent(QMouseEvent* aEvent)
 
 void MainDisplayWidget::wheelEvent(QWheelEvent* aEvent)
 {
+#if (QT_VERSION >= QT_VERSION_CHECK(5,14,0))
     if (mCanvasMover.updateByWheel(QVector2D(aEvent->position()), aEvent->angleDelta().y(),
                                    mViaPoint.mouseSetting().invertMainViewScaling))
+#else
+    if (mCanvasMover.updateByWheel(QVector2D(aEvent->pos()), aEvent->angleDelta().y(),
+                                   mViaPoint.mouseSetting().invertMainViewScaling))
+#endif
     {
         updateRender();
     }

@@ -301,7 +301,8 @@ MainMenuBar::MainMenuBar(MainWindow& aMainWindow, ViaPoint& aViaPoint, GUIResour
             platform[0] = platform[0].toUpper(); // First letter capitalization :D
             QString msgStr = tr("### AnimeEffects for ") + platform + tr(" version ") + versionString + "<br />" + tr("Original code and artwork by [Hidefuku](https://github.com/hidefuku).<br />Current development handled by the [AnimeEffectsDevs](https://github.com/AnimeEffectsDevs).");
             msgBox.setText(msgStr);
-            msgBox.setTextFormat(Qt::TextFormat::MarkdownText);
+            // TODO: fix it later
+            // msgBox.setTextFormat(Qt::TextFormat::MarkdownText);
             QString detail;
             detail += tr("Version: ") + versionString + "\n";
             detail += tr("Platform: ") + platform + " " + QSysInfo::productVersion() + "\n";

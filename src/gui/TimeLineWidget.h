@@ -5,6 +5,7 @@
 #include <QTreeWidgetItem>
 #include <QTimer>
 #include <QTime>
+#include <QElapsedTimer>
 #include <QScopedPointer>
 #include "util/Signaler.h"
 #include "core/Project.h"
